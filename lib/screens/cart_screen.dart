@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopping_app/providers/cart_provider.dart';
+import 'package:provider_shopping_app/providers/order_provider.dart';
 import 'package:provider_shopping_app/widgets/cart_item.dart';
 
 class CartScreen extends StatelessWidget {
@@ -27,6 +28,7 @@ class CartScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text('Total'),
+                  const Spacer(),
                   Chip(
                     label: Text(
                       '\$${cart.total.roundToDouble()}',
@@ -36,6 +38,16 @@ class CartScreen extends StatelessWidget {
                     ),
                     backgroundColor: Colors.blue,
                   ),
+                  TextButton(
+                      onPressed: () {
+                        context
+                            .read<Order>()
+                            .addOrder(cart.items.values.toList(), cart.total);
+                        cart.clearCart();
+                      },
+                      child: const Text(
+                        'Order Now',
+                      ))
                 ],
               ),
             ),

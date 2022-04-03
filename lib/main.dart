@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_shopping_app/providers/cart_provider.dart';
 import 'package:provider_shopping_app/providers/order_provider.dart';
 import 'package:provider_shopping_app/screens/cart_screen.dart';
+import 'package:provider_shopping_app/screens/orders_screen.dart';
 import 'package:provider_shopping_app/screens/product_detail_screen.dart';
 import 'package:provider_shopping_app/screens/products_overview_screen.dart';
 import 'package:provider_shopping_app/providers/products_provider.dart';
@@ -36,6 +37,7 @@ class ShoppingApp extends StatelessWidget {
         ProductsOverviewScreen.id: (context) => const ProductsOverviewScreen(),
         ProductDetailScreen.id: (context) => const ProductDetailScreen(),
         CartScreen.id: (context) => const CartScreen(),
+        OrdersScreen.id: (context) => const OrdersScreen(),
       },
     );
   }
