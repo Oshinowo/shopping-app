@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopping_app/screens/cart_screen.dart';
@@ -32,9 +32,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         title: const Text('MyShop'),
         actions: <Widget>[
-          Badge(
+          badges.Badge(
             badgeContent: Text(context.watch<Cart>().itemCount.toString()),
-            badgeColor: Colors.deepOrange,
+            badgeStyle: const badges.BadgeStyle(
+              badgeColor: Colors.deepOrange,
+            ),
             child: IconButton(
                 onPressed: () => Navigator.of(context).pushNamed(CartScreen.id),
                 icon: const Icon(Icons.shopping_cart)),

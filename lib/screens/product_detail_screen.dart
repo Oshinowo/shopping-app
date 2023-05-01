@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_shopping_app/providers/cart_provider.dart';
@@ -26,9 +26,11 @@ class ProductDetailScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
-            child: Badge(
+            child: badges.Badge(
               badgeContent: Text(context.watch<Cart>().itemCount.toString()),
-              badgeColor: Colors.deepOrange,
+              badgeStyle: const badges.BadgeStyle(
+                badgeColor: Colors.deepOrange,
+              ),
               child: IconButton(
                   onPressed: () =>
                       Navigator.of(context).pushNamed(CartScreen.id),
